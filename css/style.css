@@ -1,6 +1,197 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
+/*
+Global Styling
+*/
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap");
 *,
 *::before,
 ::after {
-  font-family: 'Space Mono', monospace;
+  font-family: "Space Mono", "Courier New", monospace;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
+body {
+  background-color: hsl(185, 41%, 84%);
+}
+/*
+Typography
+*/
+.title {
+  color: hsl(183, 100%, 15%);
+  text-align: center;
+  margin: 2em auto;
+  max-width: 50%;
+  letter-spacing: 0.6em;
+}
+.money-bold{
+  font-size: 2.5rem;
+  place-self:end;
+  color:hsl(172, 67%, 45%);
+}
+.input-label {
+  font-weight: 700;
+  color: hsl(186, 14%, 43%);
+  font-size: 1em;
+}
+.input-error{
+  color:red;
+  margin-left:50%;
+  display:none;
+}
+.attribution {
+  font-size: 11px;
+  text-align: center;
+}
+/*
+Utility Classes
+*/
+.section {
+  padding: 1.1em 1.1em;
+  margin: 1em;
+}
+.align {
+  align-self: stretch;
+}
+.section-title {
+  grid-column: 1 / span 2;
+  font-size: 0.8rem;
+}
+/*
+Layout
+*/
+.main-content {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+  border-radius: 25px;
+  margin-bottom: 2em;
+}
+.select-tip-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1em;
+}
+
+.results-section {
+  background-color: hsl(183, 100%, 15%);
+  border-radius: 12px;
+  color: white;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1em;
+  padding:2.5em;
+}
+
+.results-section-title::after {
+  color: hsl(184, 14%, 56%);
+  font-size: 0.7em;
+  display: block;
+  content: "/ person";
+}
+.reset-button{
+  grid-column:span 2;
+}
+
+/*
+Components
+*/
+/*Buttons*/
+.buttons {
+  border: none;
+  border-radius: 5px;
+  background-color: hsl(183, 100%, 15%);
+  color: white;
+  font-size: 1.5em;
+  font-weight: 700;
+  padding: 0.5rem 1.3rem;
+  transition-duration: 100ms;
+  cursor: pointer;
+}
+.buttons:hover {
+  color: hsl(183, 100%, 15%);
+  background-color: hsl(172, 67%, 45%);
+}
+.buttons:active {
+  color: hsl(183, 100%, 15%);
+  background-color: hsl(185, 41%, 84%);
+}
+.buttons:focus{
+  outline-color:hsl(172, 67%, 45%);
+}
+.reset-button {
+  background-color: hsl(172, 67%, 45%);
+  color: hsl(183, 100%, 15%);
+}
+/*Inputs*/
+input[type='number'] {
+  -moz-appearance:textfield; 
+}
+
+input::-webkit-outer-spin-button, /*hide arrows*/
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+.input {
+  color: hsl(183, 100%, 15%);
+  font-weight: 700;
+  width: 100%;
+  font-size: 24px;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 4px;
+  background-repeat: no-repeat;
+  background-size: 0.5em;
+  background-position: 3% 50%;
+  direction:rtl;
+}
+.input:focus{
+  outline: 2px solid hsl(172, 67%, 45%);
+}
+.money-input {
+  background-image: url("../images/icon-dollar.svg");
+}
+.people-input {
+  background-image: url("../images/icon-person.svg");
+}
+.title{
+  margin-bottom:4em;
+  width:10em;
+}
+.footer{
+  margin-top:4em;
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+@media (min-width:550px){
+  body{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    height:100%; /*Fallback for IE8 and older*/
+    height:100vh;
+  }
+
+  .main-content{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    max-width:860px;
+    margin:0 auto;
+  }
+  .select-tip-section{
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .desktop-span-3{
+    grid-column:1 / span 3;
+  }
+  .results-section{
+    grid-column:2;
+    grid-row:1 / span 3;
+  }
+  .reset-button{
+    align-self:end;
+  }
+};
